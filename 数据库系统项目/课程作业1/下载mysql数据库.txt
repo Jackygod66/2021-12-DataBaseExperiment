@@ -1,0 +1,23 @@
+sudo apt-get install mysql-server
+sudo apt-get install mysql-client
+sudo apt-get install libmysqlclient-dev
+
+mysql -u root -p
+
+sudo apt-get remove vim-common
+
+sudo apt-get install vim
+
+sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+输入密码后，就打开了配置文件，需要将 bind-address=127.0.0.1注释掉，即变成 #bind-address=127.0.0.1
+(先点击 i 进入编辑模式，再点击esc退出编辑模式，在最后一行敲入 ：wq 即可保存退出)
+
+sudo -s
+service mysql start
+mysql
+
+
+CREATE USER 'root' IDENTIFIED WITH mysql_native_password BY '123456';
+GRANT all ON *.* TO 'root'@'%';
+flush privileges;
+

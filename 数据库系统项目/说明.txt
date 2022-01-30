@@ -1,0 +1,1 @@
+本项目使用Android Studio来编写的软件，若需要运行请先下载Android Studio

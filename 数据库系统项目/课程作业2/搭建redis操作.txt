@@ -1,0 +1,19 @@
+sudo apt-get install redis-server
+
+使用ps -aux|grep redis命令可以看到服务器系统进程默认端口6379
+
+使用netstat -nlt|grep 6379命令可以看到redis服务器状态
+
+sudo vi /etc/redis/redis.conf
+
+requirepass "123456"
+
+#bind 127.0.0.1
+
+防火墙开放端口
+firewall-cmd --permanent --add-port=6379/tcp
+
+开放6379端口
+/sbin/iptables -I INPUT -p tcp --dport 6379 -j ACCEPT
+
+即可通过安卓访问redis数据库
